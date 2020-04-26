@@ -5,20 +5,14 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 const api = require("./utils/api");
 
-const questions = [{
-        type: "input",
-        name: "github",
-        message: "Enter your GitHub Username:"
-    },
-    {
-        type: "input",
-        name: "repository",
-        message: "Enter a repository name:"
-    }
-];
+const question = [{
+    type: "input",
+    name: "github",
+    message: "Enter your GitHub Username:"
+}, ];
 
 function promptUser() {
-    return inquirer.prompt(questions);
+    return inquirer.prompt(question);
 }
 
 
@@ -40,8 +34,7 @@ async function init() {
     const answers = await promptUser();
     const readme = generateReadme(answers);
     const username = answers.github;
-    const repo = answers.repository;
-    const githubApi = await api.getUser(username, repo);
+    const githubApi = await api.getUser(username);
     writeToFile("README.md", githubApi);
 }
 
