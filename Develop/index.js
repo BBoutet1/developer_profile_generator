@@ -66,7 +66,8 @@ async function init() {
     const githubApi = await api.getUser(username); // github API for the profile
     answers.userPicture = githubApi[0].actor.avatar_url; // adding the url of the github profil
     answers.userEmail = githubApi[0].payload.commits[0].author.email; // adding the github profil email address
-    writeToFile("README.md", githubApi);
+    const markdown = generateMarkdown(answers);
+    writeToFile("README.md", markdown);
 }
 
 init();
