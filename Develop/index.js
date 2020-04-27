@@ -61,11 +61,11 @@ function writeToFile(fileName, data) {
 }
 
 async function init() {
-    const answers = await promptUser();
-    console.log(answers)
-    const username = answers.github;
-    const githubApi = await api.getUser(username);
-    console.log(githubApi)
+    const answers = await promptUser(); // Answers objetc to prompt
+    const username = answers.github; // retrieved answer object
+    const githubApi = await api.getUser(username); // github API for the profile
+    answers.userPicture = githubApi[0].actor.avatar_url; // adding the url of the github profil
+    answers.userEmail = githubApi[0].payload.commits[0].author.email; // adding the github profil email address
     writeToFile("README.md", githubApi);
 }
 
