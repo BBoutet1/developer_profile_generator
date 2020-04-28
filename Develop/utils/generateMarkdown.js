@@ -1,16 +1,29 @@
 function generateMarkdown(data) {
     return `
 # ${data.title}
-# ${data.description}
-# ${data.TableOfContents}
-# ${data.installation}
-# ${data.usage}
-# ${data.licence}
-# ${data.contributing}
-# ${data.tests}
-# ${data.questions}
-# ${data.userPicture}
-# ${data.userEmail}
+# Descrcription
+${data.description}
+# Table of contents
+${data.TableOfContents}
+# Installation
+
+${data.installation}
+
+# Usage
+${data.usage}
+# Licence
+${data.licence}
+# Contributing
+${data.contributing}
+# Tests
+${data.tests}
+#Questions
+${data.questions}
+
+* GitHub username: [BBoutet1](https://github.com/BBoutet1)
+* Email: [${data.userEmail}](${data.userEmail})
+* ![](${data.userPicture}| width=300)
+
 `;
 }
 
