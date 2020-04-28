@@ -1,30 +1,55 @@
 function generateMarkdown(data) {
+    var mark = "`"
     return `
-# ${data.title}
-# Descrcription
+//# Title: ${data.title}
+
+## Descrcription
+
 ${data.description}
-# Table of contents
-${data.TableOfContents}
-# Installation
+
+## Table of contents
+
+* Installation
+* Usage
+* Licence
+* Contributing
+* Tests
+* Questiions
+* Author information
+
+## Installation
 
 ${data.installation}
 
-# Usage
+## Usage
+
 ${data.usage}
-# Licence
+
+## Licence
+
 ${data.licence}
-# Contributing
+
+## Contributing
+
 ${data.contributing}
-# Tests
+
+## Tests
+
 ${data.tests}
-#Questions
+
+## Questions
+
 ${data.questions}
 
-* GitHub username: [BBoutet1](https://github.com/BBoutet1)
-* Email: [${data.userEmail}](${data.userEmail})
-* ![](${data.userPicture}| width=300)
+## Author information
 
+<img align="left" width="150" height="auto" src="${data.userPicture}">
+${mark}
+GitHub username: [BBoutet1](${data.github})
+Email: [${data.userEmail}](${data.userEmail})
+${mark}
 `;
 }
 
+module.exports = generateMarkdown;
 module.exports = generateMarkdown;
