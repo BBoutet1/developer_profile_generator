@@ -1,21 +1,28 @@
 function generateMarkdown(data) {
-    var mark = "`"
     return `
-//# Title: ${data.title}
+# Title: ${data.title}
+
+${data.summary}
 
 ## Descrcription
 
 ${data.description}
 
 ## Table of contents
+<!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->
+<details>
+<summary>Click to expand</summary>
 
-* Installation
-* Usage
-* Licence
-* Contributing
-* Tests
-* Questiions
-* Author information
+* [Installation](#installation)
+* [Usage](#usage)
+* [Licence](#licence)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questiions](#questions)
+* [Author information](#author-information)
+
+</details>
+<!-- ⛔️ MD-MAGIC-EXAMPLE:END -->
 
 ## Installation
 
@@ -44,12 +51,9 @@ ${data.questions}
 ## Author information
 
 <img align="left" width="150" height="auto" src="${data.userPicture}">
-${mark}
-GitHub username: [BBoutet1](${data.github})
-Email: [${data.userEmail}](${data.userEmail})
-${mark}
+* GitHub username: [${data.github}](https://github.com/${data.github})
+* Email: [${data.userEmail}](mailto:${data.userEmail})
 `;
 }
 
-module.exports = generateMarkdown;
 module.exports = generateMarkdown;
