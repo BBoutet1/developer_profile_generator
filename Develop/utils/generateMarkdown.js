@@ -2,6 +2,8 @@ function generateMarkdown(data) {
     return `
 # ${data.title}
 
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+---
 
 ${data.description}
 
