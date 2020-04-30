@@ -1,14 +1,12 @@
 function generateMarkdown(data) {
     return `
-# Title: ${data.title}
+# ${data.title}
 
-${data.summary}
-
-## Descrcription
 
 ${data.description}
 
 ## Table of contents
+
 <!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->
 <details>
 <summary>Click to expand</summary>
@@ -25,6 +23,7 @@ ${data.description}
 <!-- ⛔️ MD-MAGIC-EXAMPLE:END -->
 
 ## Installation
+
 
 ${data.installation}
 
@@ -50,10 +49,10 @@ ${data.questions}
 
 ## Author information
 
-<img align="left" width="150" height="auto" src="${data.userPicture}">
-* GitHub username: [${data.github}](https://github.com/${data.github})
-* Email: [${data.userEmail}](mailto:${data.userEmail})
+| <img align="left" width="150" height="auto" margin="10"  src="${data.userPicture}"> | Email : [${data.userEmail}](${data.userEmail})<br/> GitHub username : [BBoutet1](https://github.com/${data.github}) |
+| -------- | ----------- |
 `;
 }
 
+module.exports = generateMarkdown;
 module.exports = generateMarkdown;

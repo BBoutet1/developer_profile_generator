@@ -1,5 +1,5 @@
 
-# Title: Generated README
+# Title: undefined
 
 undefined
 
@@ -8,6 +8,7 @@ undefined
 undefined
 
 ## Table of contents
+
 <!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->
 <details>
 <summary>Click to expand</summary>
@@ -22,8 +23,6 @@ undefined
 
 </details>
 <!-- ⛔️ MD-MAGIC-EXAMPLE:END -->
-
-## Installation
 
 undefined
 
@@ -49,6 +48,5 @@ undefined
 
 ## Author information
 
-<img align="left" width="150" height="auto" src="https://avatars.githubusercontent.com/u/59809722?">
-* GitHub username: [BBoutet1](bboutet1)
-* Email: [boutetlb@gmail.com](boutetlb@gmail.com)
+| <img align="left" width="150" height="auto" margin="10"  src="https://avatars.githubusercontent.com/u/59809722?"> | Email : [boutetlb@gmail.com](boutetlb@gmail.com)<br/> GitHub username : [BBoutet1](https://github.com/bboutet1) |
+| -------- | ----------- |

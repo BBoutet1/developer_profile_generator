@@ -10,36 +10,42 @@ const questions = [{
         type: "input",
         name: "github",
         message: "Enter your GitHub Username:"
-    }, {
-        type: "input",
-        name: "title",
-        message: "Enter your project title:"
     },
-    {
-        type: "input",
-        name: "description",
-        message: "Enter your project description:"
-    },
-    {
-        type: "input",
-        name: "installation",
-        message: "Enter your installation guideline:"
-    },
-    {
-        type: "input",
-        name: "contributing",
-        message: "Enter your project contributing:"
-    },
-    {
-        type: "input",
-        name: "tests",
-        message: "Enter project tests tests:"
-    },
-    {
-        type: "input",
-        name: "questions",
-        message: "Enter projects questions:"
-    },
+    /* {
+            type: "input",
+            name: "title",
+            message: "Enter your project title:"
+        },
+          {
+              type: "input",
+              name: "description",
+              message: "Enter your project description:"
+          },
+            {
+              type: "input",
+              name: "summary",
+              message: "Enter your project summary:"
+          },
+          {
+              type: "input",
+              name: "installation",
+              message: "Enter your installation guideline:"
+          },
+          {
+              type: "input",
+              name: "contributing",
+              message: "Enter your project contributing:"
+          },
+          {
+              type: "input",
+              name: "tests",
+              message: "Enter project tests tests:"
+          },
+          {
+              type: "input",
+              name: "questions",
+              message: "Enter projects questions:"
+          }, */
 ];
 
 function promptUser() {
@@ -62,7 +68,7 @@ async function init() {
     answers.userPicture = githubApi[0].actor.avatar_url; // adding the url of the github profil
     answers.userEmail = githubApi[0].payload.commits[0].author.email; // adding the github profil email address
     const markdown = generateMarkdown(answers);
-    writeToFile("README.md", markdown);
+    writeToFile("README_generated.md", markdown);
 }
 
 init();
