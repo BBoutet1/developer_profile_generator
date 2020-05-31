@@ -1,10 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const htmlToPdf = require('md-to-pdf');
 
-const fetch = require('node-fetch');
-const accessToken = "Your github access token" //;'67001de2965a7c5a76e08b18351a273cc1e301d1'; // Githup graphql API Access token
+
+const fetch = require("node-fetch");
+const accessToken = ''; // Githup graphql API Access token
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -12,6 +12,8 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
 const generateHtml = require("./utils/generateHTML");
+
+const pdf = require('html-pdf');
 
 const questions = [{
         type: "input",
@@ -66,9 +68,6 @@ const questions = [{
 function promptUser() {
     return inquirer.prompt(questions);
 }
-
-
-
 
 function writeToFile(fileName, data) {
     try {
@@ -150,7 +149,7 @@ async function init() {
 
     /* Genreate files after 1s dalay needed for the graphql API call */
     setTimeout(function generateFiles() {
-        /* Creating html for pinned repositories */
+        /* Creating html lement for pinned repositories */
         let reposHtml = "";
         const repos = answers.pinned;
         console.log(answers.length)
@@ -160,11 +159,22 @@ async function init() {
         }
         answers.reposHtml = reposHtml;
 
+        /* Creating html et md files */
         const markdown = generateMarkdown(answers);
         const html = generateHtml(answers);
         writeToFile("README_generated.md", markdown);
-        writeToFile("Profil_generated.html", html);
-    }, 1200)
+        writeToFile("profil_generated.html", html);
+
+        /* User HTML profile conversion to pdf*/
+        setTimeout(function createPdf() {
+            const htmlFile = fs.readFileSync('Profil_generated.html', 'utf8');
+            const options = { format: 'Letter' };
+            pdf.create(htmlFile, options).toFile('./Profil_generated.pdf', function(err, res) {
+                if (err) return console.log(err);
+                console.log(res); // { filename: '/app/businesscard.pdf' }
+            });
+        }, 200)
+    }, 700)
 
 }
 

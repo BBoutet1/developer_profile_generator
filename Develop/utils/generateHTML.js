@@ -48,7 +48,7 @@ function generateHtml(data) {
                     <div style="float: left; margin-left: 5px ">
                         <i class="fa fa-envelope-o " style="font-size:16px; float: left; line-height: 150% "></i>
                         <p style="float: left; margin: 0px; line-height: 150%; margin-left: 5px ">
-                            ${data.userEmail}
+                            ${data.email}
                         </p>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ function generateHtml(data) {
      
         
         main {
-            width: 80%;
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
             margin-top: 50px;
@@ -188,10 +188,10 @@ function generateHtml(data) {
         }
         
         .repos {
-            margin: 5px 5px 0 5px;
+            margin: 5px 5px 0 30px;
             padding: 0px;
             width: 275px;
-            height: 85px;
+            height: 90px;
             float:left;
         }
         
