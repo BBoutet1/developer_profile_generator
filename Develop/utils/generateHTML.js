@@ -38,7 +38,7 @@ function generateHtml(data) {
         <section>
             <picture>
                 <img class="profile_image" src="${data.userPicture}" />
-                <div class="card">
+                <div class="location">
                     <div style="float: left; margin-left: 5px ">
                         <i class="fa fa-map-marker " style="font-size:16px; float: left; line-height: 150% "></i>
                         <p style="float: left; margin: 0px; line-height: 150%; margin-left: 5px ">
@@ -201,11 +201,12 @@ function generateHtml(data) {
             line-height: 1.3;
         }
     
-        .card {
+        .location {
             padding: 8px;
             margin-top: 10px;
             background-color: rgb(248, 248, 118);
             border-radius: 8px;
+            overflow: auto;
         }
         
         .footer {
