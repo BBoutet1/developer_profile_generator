@@ -2,8 +2,7 @@ function generateMarkdown(data) {
     return `
 # ${data.title}
 
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
----
+###### <p align="center">![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)</p>
 
 ${data.description}
 
@@ -51,10 +50,9 @@ ${data.questions}
 
 ## Author information
 
-| <img align="left" width="150" height="auto" margin="10"  src="${data.userPicture}"> | Email : [${data.userEmail}](${data.userEmail})<br/> GitHub username : [BBoutet1](https://github.com/${data.github}) |
-| -------- | ----------- |
+| <img align="left" width="150" height="auto" margin="10"  src="${data.userPicture}"> |  \`${data.name}\`<br/>  Email : [${data.email}](${data.email})<br/> GitHub : [${data.user}](https://github.com/${data.github})<br> Blog:  [${data.blog}](https://github.com/${data.blog}) |
+| -------- | ----------- |--------------|
 `;
 }
 
-module.exports = generateMarkdown;
 module.exports = generateMarkdown;
