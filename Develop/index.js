@@ -4,7 +4,7 @@ const util = require("util");
 const htmlToPdf = require('md-to-pdf');
 
 const fetch = require('node-fetch');
-const accessToken = '6c476c02aaa7288e10d3815f523430c0796e786f'; // Githup graphql API Access token
+const accessToken = '88ed5b10af2bf09a660a8c30739eb03a89415d6a'; // Githup graphql API Access token
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -113,6 +113,7 @@ async function init() {
                             node {
                                 ...on Repository {
                                     name
+                                    description
                                 }
                             }
                         }
@@ -131,11 +132,12 @@ async function init() {
                 }).then(res => res.text())
                 .then((body) => {
                     let res = JSON.parse(body)
+                    console.log(res, body)
                     data = res.data.user;
                     answers.email = data.email;
                     answers.count = data.pinnedItems.totalCount;
                     answers.pinned = data.pinnedItems.edges;
-                    console.log(answers)
+                    console.log(answers.pinned[1].node)
 
                 })
         } catch (error) {
@@ -143,13 +145,25 @@ async function init() {
         }
 
     }
+
+
+
     /* Genreate files after 1s dalay needed for the graphql API call */
     setTimeout(function generateFiles() {
+        /* Creating html for pinned repositories */
+        const repos = answers.pinned;
+        let reposHtml = "";
+        for (let i = 0; i < repos.length; i++) {
+            reposHtml = reposHtml + "<div class=\"repos\"><h6><b>" +
+                repos[i].node.name + "</b><h6><p>" + repos[i].node.description + "</p> </div><br>"
+        }
+        answers.reposHtml = reposHtml;
+
         const markdown = generateMarkdown(answers);
         const html = generateHtml(answers);
         writeToFile("README_generated.md", markdown);
         writeToFile("Profil_generated.html", html);
-    }, 700)
+    }, 1000)
 
 }
 

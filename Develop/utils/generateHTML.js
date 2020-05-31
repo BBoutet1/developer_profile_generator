@@ -1,5 +1,4 @@
 function generateHtml(data) {
-
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +16,7 @@ function generateHtml(data) {
 
 <body>
     <!--Main define with .container class, container background white-->
-    <main>
+    <main class="main">
         <!--Bootstrap navigation bar-->
         <nav>
             <h1> <strong> ${data.name} </strong></h1>
@@ -58,7 +57,8 @@ function generateHtml(data) {
                 <!--Introducing myself-->
                 <h3>Bio</h3>
                 <p>  ${data.bio}</p>
-                <h3>Starred repositories</h3>
+                <h3>Pinned repositories : ${data.count}</h3>
+                ${data.reposHtml}
              </div>
             <div class="footer">
                 <div class="stats">
@@ -72,6 +72,7 @@ function generateHtml(data) {
         </section>
     </main>
 
+    
     <style>
 * {
     margin: 0px;
@@ -129,7 +130,6 @@ section>p {
     line-height: 1.5;
 }
 
-
 /* Main (central) container */
 
 
@@ -161,7 +161,6 @@ h2 {
     margin-right: 5px;
 }
 
-
 /* bio (index) headings */
 
 h3 {
@@ -174,8 +173,6 @@ h3 {
     border-bottom: 2px solid black;
 }
 
-
-
 picture {
     width: 250px;
     float: left;
@@ -185,8 +182,6 @@ picture {
     background-color: white;
 }
 
-
-
 .profile_image {
     display: block;
     margin: 10px auto 10px auto;
@@ -194,9 +189,6 @@ picture {
     height: auto;
     border-radius: 50%;
 }
-
-
-
 
 .card {
     padding: 8px;
@@ -228,6 +220,7 @@ picture {
     padding: 10px;
 }
 </style> 
+
 </body>
 
 </html>
