@@ -60,166 +60,179 @@ function generateHtml(data) {
                 <h3>Pinned repositories : ${data.count}</h3>
                 ${data.reposHtml}
              </div>
-            <div class="footer">
+        </section>
+         <div class="footer">
                 <div class="stats">
-                    <h5 class="stat">Public repositories: ${data.repos} </h5>
-                    <h5 class="stat">|</h5>
-                    <h5 class="stat">Followers: ${data.followers}</h5>
+                    <h6 class="stat">Public repositories: ${data.repos} </h6>
+                    <h6 class="stat">|</h6>
+                    <h6 class="stat">Followers: ${data.followers}</h6>
                 </div>
             </div>
-
-
-        </section>
     </main>
 
     
     <style>
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100%;
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        /* Header - nigation bar attributes  */
+        
+        nav {
+            padding: 0px;
+            margin: 0px;
+            height: 60px;
+            width: 100%;
+        }
+        /* h1 heading (mame) attributes*/
+        
+        h1 {
+            width: 250px;
+            height: 56PX;
+            line-height: 100%;
+            float: left;
+            background: black;
+            font-size: 24px;
+            color: white;
+            padding: 20px;
+        }
+        
+        .links {
+            height: 57px;
+            background-color: white;
+            border-bottom: 1px solid black;
+        }
+        
+        .blog,
+        .github {
+            padding: 10px;
+            float: right;
+            margin-left: 25px;
+        }
+        
+        section {
+            overflow: auto;
+            width: 100%;
+            flex-wrap: wrap;
+        }
 
-body {
-   height:100%;
-    font-family: Georgia, "Times New Roman", Times, serif;
-}
+        .right>p {
+            font-size: 16px;
+            line-height: 1.5;
+            padding-left: 5px;
+            margin-bottom: 8px;
+        }
+     
+     
+        
+        main {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            background-image: url("Images/background.jpg");
+            border: 1px solid black;
+            flex-wrap: wrap;
+            position:relative;
+        }
+        
+       
+        h2 {
+            width: auto;
+            font-size: 24px;
+            color: rgb(33, 119, 99);
+            border-bottom: rgb(173, 171, 171);
+            border-bottom-style: solid;
+            padding-bottom: 15px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+        h3 {
+            width: auto;
+            font-size: 18px;
+            margin: auto;
+            margin-top: 0px;
+            margin-bottom: 8px;
+            background-color: rgb(248, 248, 118);
+            border-bottom: 2px solid black;
+            padding-left: 5px;
+        }
+        
+        picture {
+            width: 250px;
+            float: left;
+            margin: 0 0px 5px 0;
+            border: 1px solid rgb(173, 171, 171);
+            padding: 5px;
+            background-color: white;
+            height: 100%;
+        }
+        
+        .profile_image {
+            display: block;
+            margin: 10px auto 10px auto;
+            width: 90%;
+            height: auto;
+            border-radius: 50%;
+        }
 
+        .right{
+            padding-left:250px;
+        }
+        
+        .repos {
+            margin: 5px 5px 0 5px;
+            padding: 0px;
+            width: 275px;
+            height: 85px;
+            float:left;
+        }
+        
+        .repos p {
+            margin: 0px;
+            padding: 0px;
+            line-height: 1.3;
+        }
+    
+        .card {
+            padding: 8px;
+            margin-top: 10px;
+            background-color: rgb(248, 248, 118);
+            border-radius: 8px;
+        }
+        
+        .footer {
+            width:100%;
+            background-color: black;
+            height: 40px;
+            color: white;
+            border-top: rgb(248, 248, 118);
+            border-top-style: solid;
+            border-width: 4px;
+            padding-left: 250px;
+            position: absolute;
+        }
+        
+        .stats {
+            width: 380px;
+            margin: auto;
+            height: 100%;
+        }
+        
+        .stat {
+            float: left;
+            line-height: 100%;
+            padding: 10px;
+        }
+    </style>
 
-/* Header - nigation bar attributes  */
-
-nav {
-    padding: 0px;
-    margin: 0px;
-    height: 60px;
-    width: 100%;
-}
-
-
-/* h1 heading (mame) attributes*/
-
-h1 {
-    width: 225px;
-    height: 56PX;
-    line-height: 100%;
-    float: left;
-    background: black;
-    font-size: 24px;
-    color: white;
-    padding: 20px;
-}
-
-.links {
-    height: 57px;
-    background-color: white;
-    border-bottom: 1px solid black;
-}
-.right {
-    height: 264px;
-}
-.blog, .github {
-   padding: 10px;
-   float: right;
-   margin-left: 25px;
-}
-
-section>p {
-    font-size: 16px;
-    text-align: justify;
-    text-justify: inter-word;
-    line-height: 1.5;
-}
-
-/* Main (central) container */
-
-
-section {
-    padding-top: 10px;
-    position:relative;
-    padding-left: 5px;
-}
-
-main {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    height: 387px;
-    background-image: url("Images/background.jpg");
-    border: 1px solid black;
-}
-
-
-h2 {
-    width: auto;
-    font-size: 24px;
-    color: rgb(33, 119, 99);
-    border-bottom: rgb(173, 171, 171);
-    border-bottom-style: solid;
-    padding-bottom: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-/* bio (index) headings */
-
-h3 {
-    width: auto;
-    font-size: 18px;
-    margin: auto;
-    margin-top: 0px;
-    margin-bottom: 15px;
-    background-color: rgb(248, 248, 118);
-    border-bottom: 2px solid black;
-}
-
-picture {
-    width: 250px;
-    float: left;
-    margin: 0 15px 5px 0;
-    border: 1px solid rgb(173, 171, 171);
-    padding: 5px;
-    background-color: white;
-}
-
-.profile_image {
-    display: block;
-    margin: 10px auto 10px auto;
-    width: 90%;
-    height: auto;
-    border-radius: 50%;
-}
-
-.card {
-    padding: 8px;
-    margin-top: 10px;
-    background-color: rgb(248, 248, 118);
-    border-radius: 8px;
-}
-
-.footer {
-    background-color: black; 
-    text-align: center;
-    height: 50px;
-    color: white;
-    border-top: rgb(33, 119, 99);
-    border-top-style: solid;
-    border-width: 6px;
-    padding-left: 250px;
-}
-
-.stats {
-    width: 380px;
-    margin: auto;
-    height: 100%;
-}
-
-.stat {
-    float:left;
-    line-height:100%;
-    padding: 10px;
-}
-</style> 
 
 </body>
 

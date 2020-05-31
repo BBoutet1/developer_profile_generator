@@ -4,7 +4,7 @@ const util = require("util");
 const htmlToPdf = require('md-to-pdf');
 
 const fetch = require('node-fetch');
-const accessToken = '88ed5b10af2bf09a660a8c30739eb03a89415d6a'; // Githup graphql API Access token
+const accessToken = "Your github access token" //;'67001de2965a7c5a76e08b18351a273cc1e301d1'; // Githup graphql API Access token
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -151,11 +151,12 @@ async function init() {
     /* Genreate files after 1s dalay needed for the graphql API call */
     setTimeout(function generateFiles() {
         /* Creating html for pinned repositories */
-        const repos = answers.pinned;
         let reposHtml = "";
+        const repos = answers.pinned;
+        console.log(answers.length)
         for (let i = 0; i < repos.length; i++) {
             reposHtml = reposHtml + "<div class=\"repos\"><h6><b>" +
-                repos[i].node.name + "</b><h6><p>" + repos[i].node.description + "</p> </div><br>"
+                repos[i].node.name + "</b><h6><p>" + repos[i].node.description + "</p> </div>"
         }
         answers.reposHtml = reposHtml;
 
@@ -163,7 +164,7 @@ async function init() {
         const html = generateHtml(answers);
         writeToFile("README_generated.md", markdown);
         writeToFile("Profil_generated.html", html);
-    }, 1000)
+    }, 1200)
 
 }
 
