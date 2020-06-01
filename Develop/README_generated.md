@@ -3,7 +3,7 @@
 
 ###### <p align="center">![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)</p>
 
-A command-line application that dynamically generates a README.md file from user's input. It also creates a pdf file containing the user's github profile information.
+A command-line application that dynamically generates a README.md file from user's inputs. It also creates a pdf file containing the user's github profile information.
 
 ## Table of contents
 
@@ -23,11 +23,11 @@ A command-line application that dynamically generates a README.md file from user
 
 ## Installation
 
-In index.js file, make sure you have your github personal access toke as a string value for the variable called `accessToken`. Then run the command line `node index.js`.
+In index.js file, put your github personal access token as a string value for the variable called `accessToken`. Then run the command line `node index.js`.
 
 ## Usage
 
-The user is prompted for his github username which is used to make a call to the github APIs (jSON and graphql) to retrieve email, profile picture, pinned repositories names, ect. Then his prompted with information about his project.
+The user is prompted for his github username which is used to make a call to the github APIs (jSON and graphql) to retrieve email, profile picture, pinned repositories names, ect. Then he is prompted with information about his project.
 
 ## License
 
@@ -39,7 +39,7 @@ Feel free to make a pull request.
 
 ## Questions
 
-Please, find author contact information below.
+Please, find author information and contact below.
 
 ## Author information
 
