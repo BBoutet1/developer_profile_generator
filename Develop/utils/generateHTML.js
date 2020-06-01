@@ -97,7 +97,7 @@ function generateHtml(data) {
             height: 56PX;
             line-height: 100%;
             float: left;
-            background: black;
+            background: ${data.color};
             font-size: 24px;
             color: white;
             padding: 20px;
@@ -106,7 +106,7 @@ function generateHtml(data) {
         .links {
             height: 57px;
             background-color: white;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid ${data.color};
         }
         
         .blog,
@@ -128,8 +128,7 @@ function generateHtml(data) {
             padding-left: 5px;
             margin-bottom: 8px;
         }
-     
-     
+    
         
         main {
             width: 90%;
@@ -137,7 +136,7 @@ function generateHtml(data) {
             margin-right: auto;
             margin-top: 50px;
             background-image: url("Images/background.jpg");
-            border: 1px solid black;
+            border: 1px solid ${data.color};
             flex-wrap: wrap;
             position:relative;
         }
@@ -161,7 +160,7 @@ function generateHtml(data) {
             margin-top: 0px;
             margin-bottom: 8px;
             background-color: rgb(248, 248, 118);
-            border-bottom: 2px solid black;
+            border-bottom: 2px solid ${data.color};
             padding-left: 5px;
         }
         
@@ -211,7 +210,7 @@ function generateHtml(data) {
         
         .footer {
             width:100%;
-            background-color: black;
+            background-color: ${data.color};
             height: 40px;
             color: white;
             border-top: rgb(248, 248, 118);

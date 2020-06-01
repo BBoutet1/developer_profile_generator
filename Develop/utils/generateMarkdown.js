@@ -16,7 +16,6 @@ ${data.description}
 * [Usage](#usage)
 * [Licence](#licence)
 * [Contributing](#contributing)
-* [Tests](#tests)
 * [Questiions](#questions)
 * [Author information](#author-information)
 
@@ -25,8 +24,9 @@ ${data.description}
 
 ## Installation
 
-
-${data.installation}
+\`\`sh
+    ${ data.installation }
+\`\`
 
 ## Usage
 
@@ -40,9 +40,6 @@ ${data.licence}
 
 ${data.contributing}
 
-## Tests
-
-${data.tests}
 
 ## Questions
 
