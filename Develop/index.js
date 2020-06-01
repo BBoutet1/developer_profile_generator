@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const fetch = require("node-fetch");
-const accessToken = ""; // Githup graphql API Access token
+const accessToken = "7fe9b650836d541cd47e4d80a22bffec1b64e8e0"; // Githup graphql API Access token
 const writeFileAsync = util.promisify(fs.writeFile);
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
@@ -23,7 +23,7 @@ const questions = [{
     {
         type: "input",
         name: "description",
-        message: "Enter your project description:"
+        message: "Enter your project usage description:"
     },
     {
         type: "input",
@@ -40,7 +40,6 @@ const questions = [{
         name: "contribute",
         message: "How to contribute?"
     },
-
     {
         type: "input",
         name: "license",

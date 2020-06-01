@@ -24,9 +24,7 @@ ${data.description}
 
 ## Installation
 
-\`\`sh
-    ${ data.installation }
-\`\`
+${ data.installation }
 
 ## Usage
 
