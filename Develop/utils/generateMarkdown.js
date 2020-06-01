@@ -32,14 +32,13 @@ ${data.description}
 
 ${data.usage}
 
-## Licence
+## License
 
-${data.licence}
+${data.license}
 
 ## Contributing
 
-${data.contributing}
-
+${data.contribute}
 
 ## Questions
 

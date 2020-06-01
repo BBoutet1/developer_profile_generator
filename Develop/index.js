@@ -1,14 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-
-
 const fetch = require("node-fetch");
-const accessToken = "62630c3055bf9dab17fce22ac2af519035c15743"; // Githup graphql API Access token
-
+const accessToken = ""; // Githup graphql API Access token
 const writeFileAsync = util.promisify(fs.writeFile);
-
-
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
 const generateHtml = require("./utils/generateHTML");
@@ -32,18 +27,24 @@ const questions = [{
     },
     {
         type: "input",
-        name: "usage",
-        message: "Enter your project usage summary:"
-    },
-    {
-        type: "input",
         name: "installation",
         message: "Enter your installation guideline:"
     },
     {
         type: "input",
-        name: "contributing",
-        message: "How to make contributions?"
+        name: "usage",
+        message: "Enter your project usage summary:"
+    },
+    {
+        type: "input",
+        name: "contribute",
+        message: "How to contribute?"
+    },
+
+    {
+        type: "input",
+        name: "license",
+        message: "What is the author license?"
     },
     {
         type: "input",
