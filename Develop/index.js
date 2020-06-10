@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const fetch = require("node-fetch");
-const accessToken = "YOUR-GITHUB-ACCESS-TOKEN"; // Access token to be generated
+const accessToken = "57ff37da168cc8ee78ad671faee609846820de9b"; // Access token to be generated
 const writeFileAsync = util.promisify(fs.writeFile);
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
@@ -60,6 +60,8 @@ const questions = [{
     ,
 ];
 
+let grahqlData; // jSON from github graphql API
+
 function promptUser() {
     return inquirer.prompt(questions);
 }
@@ -73,12 +75,13 @@ function writeToFile(fileName, data) {
     }
 }
 
+
 async function init() {
     const answers = await promptUser(); // Answers objetc to prompt
     const username = answers.github; // retrieved answer object
     const githubApi = await api.getUser(username); // github API for the profile
 
-    /* Adding json API retrieved information to the answers object */
+    /* Adding data retrieved from github json API  to the answers object */
     answers.user = githubApi.login;
     answers.userPicture = githubApi.avatar_url;
     answers.name = githubApi.name;
@@ -93,7 +96,6 @@ async function init() {
     getEmail(username)
 
     function getEmail(username) {
-        let data, dataJSON;
         const query = `query {
                 user(login: "${username}") {
                     pinnedItems(first: 4, types: [REPOSITORY, GIST]) {
@@ -120,11 +122,8 @@ async function init() {
                     },
                 }).then(res => res.text())
                 .then((body) => {
-                    let res = JSON.parse(body)
-                    data = res.data.user;
-                    answers.email = data.email;
-                    answers.count = data.pinnedItems.totalCount;
-                    answers.pinned = data.pinnedItems.edges;
+                    let resp = JSON.parse(body)
+                    grahqlData = resp.data.user;
                 })
         } catch (error) {
             console.log(error);
@@ -136,6 +135,12 @@ async function init() {
 
     /* Genreate files after 1s dalay needed for the graphql API call */
     setTimeout(function generateFiles() {
+
+        /* Adding data retrieved from github graphql API  to the answers object */
+        answers.email = grahqlData.email;
+        answers.count = grahqlData.pinnedItems.totalCount;
+        answers.pinned = grahqlData.pinnedItems.edges;
+
         /* Creating html lement for pinned repositories */
         let reposHtml = "";
         const repos = answers.pinned;
