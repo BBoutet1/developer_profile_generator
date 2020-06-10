@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const fetch = require("node-fetch");
-const accessToken = "57ff37da168cc8ee78ad671faee609846820de9b"; // Access token to be generated
+const accessToken = "2f8646467db49bb9b17052624680a9368d818c3c"; // Access token to be generated
 const writeFileAsync = util.promisify(fs.writeFile);
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
@@ -60,8 +60,6 @@ const questions = [{
     ,
 ];
 
-let grahqlData; // jSON from github graphql API
-
 function promptUser() {
     return inquirer.prompt(questions);
 }
@@ -71,9 +69,10 @@ function writeToFile(fileName, data) {
         return writeFileAsync(fileName, data);
         console.log("Successfully wrote to README.md");
     } catch (err) {
-        console.log("ERROR" + err);
+        console.log(err);
     }
 }
+
 
 
 async function init() {
@@ -95,7 +94,9 @@ async function init() {
     /* Email and pinned repos from the graphql API */
     getEmail(username)
 
+
     function getEmail(username) {
+        let data;
         const query = `query {
                 user(login: "${username}") {
                     pinnedItems(first: 4, types: [REPOSITORY, GIST]) {
@@ -122,25 +123,24 @@ async function init() {
                     },
                 }).then(res => res.text())
                 .then((body) => {
-                    let resp = JSON.parse(body)
-                    grahqlData = resp.data.user;
+                    graphqlJSON(body)
                 })
         } catch (error) {
             console.log(error);
         }
 
     }
-
+    async function graphqlJSON(body) {
+        data = await JSON.parse(body);
+        data = data.data.user
+        answers.email = data.email;
+        answers.count = data.pinnedItems.totalCount;
+        answers.pinned = data.pinnedItems.edges;
+    }
 
 
     /* Genreate files after 1s dalay needed for the graphql API call */
     setTimeout(function generateFiles() {
-
-        /* Adding data retrieved from github graphql API  to the answers object */
-        answers.email = grahqlData.email;
-        answers.count = grahqlData.pinnedItems.totalCount;
-        answers.pinned = grahqlData.pinnedItems.edges;
-
         /* Creating html lement for pinned repositories */
         let reposHtml = "";
         const repos = answers.pinned;
