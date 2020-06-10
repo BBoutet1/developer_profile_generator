@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const fetch = require("node-fetch");
-const accessToken = "2f8646467db49bb9b17052624680a9368d818c3c"; // Access token to be generated
+const accessToken = "YOUR-ACCESS-TOKEN"; // Access token to be generated
 const writeFileAsync = util.promisify(fs.writeFile);
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
@@ -167,8 +167,8 @@ async function init() {
                     console.log(res);
                 });
             },
-            200)
-    }, 700)
+            300)
+    }, 500)
 
 }
 
