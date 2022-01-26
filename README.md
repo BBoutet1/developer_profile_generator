@@ -47,4 +47,4 @@ Please, find author information and contact below.
 | -------- | ----------- |
 
 # DEMO
-<img align="left" width="150" height="auto" margin="10"  src="https://github.com/BBoutet1/developer_profile_generator/blob/master/Develop/files-generation.gif?raw=true">
+<img align="left" width="500" height="auto" margin="10"  src="https://github.com/BBoutet1/developer_profile_generator/blob/master/Develop/files-generation.gif?raw=true">
